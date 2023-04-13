@@ -1,5 +1,17 @@
 #Python Final Project
-print("python")
-print("hello")
-print("cool")
-branch
+
+def errorHandling():
+    
+    
+    try:
+        user_food = input("Please enter an item:" )
+        
+        
+        return user_food
+    
+    except ValueError: 
+        print("invalid input. Please enter a valid item")
+        
+         
+            
+errorHandling()        
