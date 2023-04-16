@@ -47,8 +47,8 @@ cafe= {
 }
 
 item_name = ""
-ordered = {}
-all_orders = {}
+order = {}
+complete_orders = {}
 
 #taxes
 
@@ -81,6 +81,6 @@ for category_name,values in cafe.items():
 
 item_name = input("\nWhat would you like to order?:")
 item_quantity = int(input(f"How many {item_name.title()} would you like to purchase?: "))
-ordered[item_name] = item_quantity
+order[item_name] = item_quantity
 
  
