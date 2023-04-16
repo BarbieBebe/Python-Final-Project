@@ -1,5 +1,74 @@
-#Python Final Project
-print("python")
-print("hello")
-print("cool")
-branch
+#library 
+#6food
+#bakery
+
+cafe= {
+    "Chocolate chip Cookie" :{
+        "price":2.50,
+        "qty":1,
+        "taxable":True
+    },
+    
+    "Coffee": {
+        "price":1.25,
+        "qty":1,
+        "taxable":True
+    },
+    
+    "Pain deu Chocolat" : {
+        "price":2.25,
+        "qty":1,
+        "taxable":"y"
+    },
+    
+    "Black Tea": {
+        "price":2.15,
+        "qty":1,
+        "taxable":True
+    },
+    
+    "Green Tea" : {
+        "price":1.50,
+        "qty":1,
+        "taxable":True
+    },
+    
+    "Glazed Donut" : {
+        "price":1.15,
+        "qty":1,
+        "taxable":True
+    },
+    
+    "Eclair" : {
+        "price":3.25,
+        "qty":1,
+        "taxable":True
+    },
+}
+
+item_name = ""
+ordered = {}
+all_orders = {}
+
+#taxes
+
+
+while True :
+    print("\tWelcome to Behind-The-Door Break Room Cafe")
+    answer =input("Hello My name is Berry\nCan I take your order. y/n: ")
+    if answer.lower() == 'y' :
+        break    
+    elif answer == "" :
+        print("Please enter 'y' for yes or 'n' for no.")
+        continue
+    else :
+        #error system should be place here
+        print(answer)
+        
+name =input("Please Enter your name:")
+str_address =input("Please Enter your street address: ")
+city_address = input("Please Enter your home city: ")
+state_adress = input("Please Enter your home State: ")
+zip_address = input("Please Enter your address's zipcode: ")
+account_num =input("Please Enter your account number: ")
+
