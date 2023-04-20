@@ -1,5 +1,15 @@
 #Python Final Project
 
+import sys
+
+def int_input(prompt):
+    while True:
+        try:
+            age = int(input(prompt))
+            return age
+        except ValueError as e:
+            print("Not a proper integer! Try it again")
+
 cafe= {
     "Chocolate chip Cookie" :{
         "price":2.50,
@@ -64,12 +74,12 @@ while True :
         print("Enter 'y' or 'n'")#error system should be place here
         print(answer)
         
-name =input("Please Enter your full name:")
+"""name =input("Please Enter your full name:")
 str_address =input("Please Enter your street address: ")
 city_address = input("Please Enter your home city: ")
 state_adress = input("Please Enter your home State: ")
 zip_address = input("Please Enter your address's zipcode: ")
-account_num =input("Please Enter your account number: ")
+account_num =input("Please Enter your account number: ")"""
 
 print("\n\tHere is our menu")
 for category_name,values in cafe.items():
@@ -79,17 +89,19 @@ for category_name,values in cafe.items():
 
 #Triggers             
 while True:
-    try:
-        item_name = input("\nWhat would you like to order?:").title()
-        
-        if item_name in cafe:
-            item_quantity = int(input(f"How many {item_name.title()}'s would you like to purchase?: "))
-        else: 
-            print("Enter an item from our menu") 
-        
-     KeyError:
-        print("Invalid input. Try again.")
-       
+    
+    item_name = input("\nWhat would you like to order?:").title()
+    
 
+        
+    if item_name in cafe:
+        item_quantity = int_input("How many would you like to purchase?")
+        #item_quantity = int((input(f"How many {item_name.title()}'s would you like to purchase?: ")))
+        #print(type(item_quantity))
 
-order[item_name] = item_quantity
+        
+        order[item_name]= item_quantity
+        print(f"{item_quantity} {item_name}'s has been added to your order ")
+            
+    else: 
+            print ("Enter an item from the menu")
