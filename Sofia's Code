@@ -1,6 +1,13 @@
 #library 
 #6food
 #bakery
+def int_input(prompt):
+    while True:
+        try:
+            age = int(input(prompt))
+            return age
+        except ValueError as e:
+            print("Not a proper integer! Try it again")
 
 cafe= {
     "Chocolate chip Cookie" :{
@@ -72,9 +79,24 @@ for category_name,values in cafe.items():
     for price, tax in values.items():
          print("\n\t" + price + "\t:\t",tax)
 
-item_name = input("\nWhat would you like to order?:")
-item_quantity =(input(f"How many {item_name.title()} would you like to purchase?: "))
-order[item_name] = item_quantity
+while True:
+    
+    item_name = input("\nWhat would you like to order?:").title()
+    order[item_name] = cafe[]
+
+        
+    if item_name in cafe:
+        item_quantity = int_input("How many would you like to purchase?")
+        #item_quantity = int((input(f"How many {item_name.title()}'s would you like to purchase?: ")))
+        #print(type(item_quantity))
+
+        
+        order[item_name]= item_quantity
+        print(f"{item_quantity} {item_name}'s has been added to your order ")
+            
+    else: 
+            print ("Enter an item from the menu")
+            
 
 
 def find_price(item_name, products_available):
