@@ -15,7 +15,7 @@ cafe= {
     
     "Pain deu Chocolat" : {
         "price":2.25,
-        "taxable":"y"
+        "taxable":True
     },
     
     "Black Tea": {
@@ -36,7 +36,7 @@ cafe= {
     "Eclair" : {
         "price":3.25,
         "taxable":True
-    },
+    }
 }
 
 item_name = ""
@@ -45,7 +45,7 @@ complete_orders = {}
 
 #taxes
 
-
+print(cafe["Eclair"]["price"])
             
 while True :
     print("\tWelcome to Behind-The-Door Break Room Cafe")
@@ -59,22 +59,34 @@ while True :
         #error system should be place here
         print(answer)
         
-name =input("Please Enter your full name:")
-str_address =input("Please Enter your street address: ")
-city_address = input("Please Enter your home city: ")
-state_adress = input("Please Enter your home State: ")
-zip_address = input("Please Enter your address's zipcode: ")
-account_num =input("Please Enter your account number: ")
+#name =input("Please Enter your full name:")
+#str_address =input("Please Enter your street address: ")
+#city_address = input("Please Enter your home city: ")
+#state_adress = input("Please Enter your home State: ")
+#zip_address = input("Please Enter your address's zipcode: ")
+#account_num =input("Please Enter your account number: ")
 
 print("\n\tHere is our menu")
 for category_name,values in cafe.items():
     print("\n"+ category_name)
-    for item, price in values.items():
-         print("\n\t" + item + "\t:\t", price)
+    for price, tax in values.items():
+         print("\n\t" + price + "\t:\t",tax)
 
 item_name = input("\nWhat would you like to order?:")
 item_quantity =(input(f"How many {item_name.title()} would you like to purchase?: "))
 order[item_name] = item_quantity
 
 
+def find_price(item_name, products_available):
+    item_price = 0
+    for item in cafe:
+        if item_name.lower() == item.lower():
+            item_price = item.get("price")
+    print(item_price)
+    return item_price
 
+for item_name, qty in order.items():
+    price = find_price(item, cafe)
+    complete_orders[item] = {"qty" : qty, "price" : price}
+    
+print(complete_orders)
