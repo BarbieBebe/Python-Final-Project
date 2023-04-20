@@ -1,6 +1,13 @@
 #library 
 #6food
 #bakery
+def int_input(prompt):
+    while True:
+        try:
+            age = int(input(prompt))
+            return age
+        except ValueError as e:
+            print("Not a proper integer! Try it again")
 
 cafe= {
     "Chocolate chip Cookie" :{
@@ -46,7 +53,7 @@ complete_orders = {}
 #taxes
 
 
-            
+#user_input = "y"            
 while True :
     print("\tWelcome to Behind-The-Door Break Room Cafe")
     answer =input("\nHello My name is Berry\nCan I take your order. y/n: ")
@@ -72,32 +79,35 @@ for category_name,values in cafe.items():
     for price, tax in values.items():
          print("\n\t" + price + "\t:\t",tax)
 
-#Triggers             
+             
 while True:
-    
-    
-    item_name = input("\nWhat would you like to order?:").title()
-    
-
         
-    if item_name in cafe:
+    item_name = input("\nWhat would you like to order?:").title()
+   
+
+   if item     
+    for x in cafe:
         
         item_price = cafe[item_name]["price"]
         item_quantity = int_input("How many would you like to purchase?")
-        #item_quantity = int((input(f"How many {item_name.title()}'s would you like to purchase?: ")))
-        #print(type(item_quantity))
-
-        
+       
         order[item_name]= item_price
         print(f"{item_quantity} {item_name}'s has been added to your order ")
         print(order)
-    
-    
-    else: 
-            print ("Enter an item from the menu")
-            
-    if 
+        if user_input != "n":
+            user_input = input("\nWould you like to order anything else? (y/n): ").title()
+            item_name = input("\nWhat would you like to order?:").title()
+        else: 
+            user_input = "n"
+        continue
+        
+        
 
+    
+    
+    
+    
+print(order)
 
 for item_name, qty in order.items():
     price = find_price(item, cafe)
