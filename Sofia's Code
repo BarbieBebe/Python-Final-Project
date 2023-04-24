@@ -122,14 +122,13 @@ for item_name, qty in order.items():
     
     
 print("-"*70)
-print("Name:"+name)
+print(f"Name:{name}")
 print(f"Customer Address:{address}")
 print(f"Date: {today_date}")
 print(f"Account Number: {account_num}")
 print("-"*70)
 print()
 print("="*70)
-
-for item_name in order:
-    print(f"{item_name}\t\t{order[item_name]['qty']}\t\t {order[item_name]['price']}\t\t {cafe[item_name]['taxable']}")
-
+print("ITEM NAME\tQUANILTY\tPRICE\t\tTAXABLE")
+    for item_name in order:
+        print(f"{item_name}\t\t{order[item_name]['qty']}\t\t {order[item_name]['price']}\t\t {cafe[item_name]['taxable']}")
