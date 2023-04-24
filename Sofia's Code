@@ -1,6 +1,17 @@
-#library 
+## library 
 #6food
 #bakery
+from datetime import date
+today =  date.today()
+today_date = today.strftime("%m/%d/%y")
+
+def find_quantity(prompt):
+    while True:
+        try:
+            age = int(input(prompt))
+            return age
+        except ValueError as e:
+            print("Not a proper integer! Try it again")
 
 cafe= {
     "Chocolate chip Cookie" :{
@@ -45,48 +56,80 @@ complete_orders = {}
 
 #taxes
 
-print(cafe["Eclair"]["price"])
-            
+
+           
 while True :
     print("\tWelcome to Behind-The-Door Break Room Cafe")
-    answer =input("\nHello My name is Berry\nCan I take your order. y/n: ")
-    if answer.lower() == 'y' :
-        break    
-    elif answer == "" :
-        print("Please enter 'y' for yes or 'n' for no.")
-        continue
-    else :
-        #error system should be place here
-        print(answer)
-        
-#name =input("Please Enter your full name:")
-#str_address =input("Please Enter your street address: ")
-#city_address = input("Please Enter your home city: ")
-#state_adress = input("Please Enter your home State: ")
-#zip_address = input("Please Enter your address's zipcode: ")
-#account_num =input("Please Enter your account number: ")
+    answer =input("\nHello My name is Berry\nwould you like to see the menu? y/n: ")
 
+    if answer.lower() == 'y' :
+        break
+
+    elif answer.lower() == 'n' :
+        print("Okay, have a nice day!")
+        while True:
+            pass
+        
+
+    else:
+        print("Please enter 'y' for yes or 'n' for no.")
+        
 print("\n\tHere is our menu")
 for category_name,values in cafe.items():
     print("\n"+ category_name)
     for price, tax in values.items():
          print("\n\t" + price + "\t:\t",tax)
 
-item_name = input("\nWhat would you like to order?:")
-item_quantity =(input(f"How many {item_name.title()} would you like to purchase?: "))
-order[item_name] = item_quantity
+name =input("Please Enter your full name:")
+address= input("Please enter your address:")
+account_num =input("Please Enter your account number: ")
 
-
-def find_price(item_name, products_available):
-    item_price = 0
-    for item in cafe:
-        if item_name.lower() == item.lower():
-            item_price = item.get("price")
-    print(item_price)
-    return item_price
-
-for item_name, qty in order.items():
-    price = find_price(item, cafe)
-    complete_orders[item] = {"qty" : qty, "price" : price}
+user_input= "0"
+while user_input != "n":
+        
+    item_name = input("\nWhat would you like to order?:").title()
     
-print(complete_orders)
+
+    if item_name in cafe:
+       
+        item_price = cafe[item_name]["price"]
+        item_quantity = find_quantity("How many would you like to purchase?")
+        order[item_name]= item_quantity
+        print(f"{item_quantity} {item_name}'s has been added to your order ")
+        print(order)
+        
+    
+    elif item_name not in cafe:
+            print ("Enter an item from the menu")
+            continue
+    
+    user_input = input("\nWould you like to order anything else? (y/n): ") 
+    if user_input == "y":
+            
+            continue
+
+
+    elif user_input == "n":
+        print("Bye!")
+        
+    else:
+         print("Please enter (y/n): ")       
+            
+            
+for item_name, qty in order.items():
+    price = cafe[item_name]['price']
+    order[item_name] = {"qty" : qty, "price" : price}
+    
+    
+print("-"*70)
+print("Name:"+name)
+print(f"Customer Address:{address}")
+print(f"Date: {today_date}")
+print(f"Account Number: {account_num}")
+print("-"*70)
+print()
+print("="*70)
+
+for item_name in order:
+    print(f"{item_name}\t\t{order[item_name]['qty']}\t\t {order[item_name]['price']}\t\t {cafe[item_name]['taxable']}")
+
