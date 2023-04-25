@@ -132,6 +132,7 @@ print("-"*70)
 print()
 print("="*70)
 tax = complete_orders[item_name] * 0.06
+print("ITEM NAME\tQUANILTY\tPRICE\t\tTAXABLE")
 for item_name in order:
     print(f"{item_name}\t\t{order[item_name]['qty']}\t\t {order[item_name]['price']}\t\t {cafe[item_name]['taxable']}\t\t {complete_orders[item_name]}")
 
