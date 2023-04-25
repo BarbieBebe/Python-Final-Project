@@ -97,8 +97,10 @@ while user_input != "n":
         order[item_name]= item_quantity
         print(f"{item_quantity} {item_name}'s has been added to your order ")
         print(order)
+        item_total = item_quantity * item_price
         
-    
+        complete_orders[item_name]= item_total
+        
     elif item_name not in cafe:
             print ("Enter an item from the menu")
             continue
@@ -129,6 +131,8 @@ print(f"Account Number: {account_num}")
 print("-"*70)
 print()
 print("="*70)
-print("ITEM NAME\tQUANILTY\tPRICE\t\tTAXABLE")
-    for item_name in order:
-        print(f"{item_name}\t\t{order[item_name]['qty']}\t\t {order[item_name]['price']}\t\t {cafe[item_name]['taxable']}")
+tax = complete_orders[item_name] * 0.06
+for item_name in order:
+    print(f"{item_name}\t\t{order[item_name]['qty']}\t\t {order[item_name]['price']}\t\t {cafe[item_name]['taxable']}\t\t {complete_orders[item_name]}")
+
+print (f"tax: {tax}")
